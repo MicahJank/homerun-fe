@@ -9,7 +9,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 // UI
 import "react-datepicker/dist/react-datepicker.css";
-import "@sandstreamdev/react-swipeable-list/dist/styles.css";
+// import "@sandstreamdev/react-swipeable-list/dist/styles.css";
 // Semantic CSS
 import "semantic-ui-css/semantic.min.css";
 // Antd Imports
