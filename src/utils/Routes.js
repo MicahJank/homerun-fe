@@ -8,6 +8,9 @@ import Dashboard from "../components/dashboard/Dashboard.js";
 // Sign in landing page with two buttons email/gmail
 import SignInLanding from "../components/auth/SignIn-Landing";
 
+// Privacy Policy for the App
+import PrivacyPolicy from '../PrivacyPolicy.js';
+
 // Home component is where the beginning of the app starts
 import Home from "../components/marketing/Home.js";
 
@@ -60,6 +63,7 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignInLanding} />
+        <Route exact path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/signup" component={SignUp} />
         <Route path="/error" component={NotFound} />
         <Route path="/contact" component={ContactUsForm} />
