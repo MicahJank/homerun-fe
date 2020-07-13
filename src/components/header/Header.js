@@ -10,9 +10,11 @@ import {
   Button,
   Modal,
   Input,
+  Message,
 } from "semantic-ui-react";
 
 import logo from "../../Logos/tidyhive-standalone.png";
+import axiosWithAuth from "../../utils/AxiosWithAuth.js";
 
 const Header = (props) => {
   const [pinInput, setPinInput] = useState("");
@@ -45,8 +47,15 @@ const Header = (props) => {
 
   const modalButtonClick = () => {
     // dispatch action for checking pin and changing the child boolean in state to false
-    dispatch(actions.user.setChildActive(false));
-    console.log(pinInput);
+    axiosWithAuth().post('/household/unlock', { pin: pinInput, id: currentUser.userInfo.member_id })
+      .then(res => {
+        if(res.data.success) {
+          dispatch(actions.user.setChildActive(false));
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
     setPinInput("");
     setPinModal(false);
   };
@@ -74,10 +83,13 @@ const Header = (props) => {
       </div>
       <Modal open={pinModal}>
         <Modal.Header>Admin Access</Modal.Header>
-        <Modal.Description>
-          You must enter the household pin to get access to user settings.
-        </Modal.Description>
         <Modal.Content>
+          <Modal.Description>
+            You must enter the main user password to gain access to user settings.
+          </Modal.Description>
+          <Message color={'orange'}>
+            Current User: {currentUser.userInfo.username}
+          </Message>
           <Input
             type="text"
             placeholder="Enter household pin"
@@ -89,7 +101,6 @@ const Header = (props) => {
         </Modal.Content>
       </Modal>
       <Sidebar setOpened={setSidebarOpened} opened={sidebarOpened} />
-      {/* TODO -> background needs to be dimmed when settings is activated */}
     </>
   );
 };
