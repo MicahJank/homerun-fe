@@ -11,6 +11,8 @@ import {
   Modal,
   Input,
   Message,
+  Loader,
+  Dimmer,
 } from "semantic-ui-react";
 
 import logo from "../../Logos/tidyhive-standalone.png";
@@ -19,6 +21,8 @@ import axiosWithAuth from "../../utils/AxiosWithAuth.js";
 const Header = (props) => {
   const [pinInput, setPinInput] = useState("");
   const [pinModal, setPinModal] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('')
   // location is an object that contains the current url path on the 'pathname' property
   const location = useLocation();
   const [sidebarOpened, setSidebarOpened] = useState(false);
@@ -45,19 +49,26 @@ const Header = (props) => {
     setPinInput(e.target.value);
   };
 
+  const handleDismiss = () => {
+    setError('')
+  }
+
   const modalButtonClick = () => {
     // dispatch action for checking pin and changing the child boolean in state to false
+    setLoading(true)
     axiosWithAuth().post('/household/unlock', { pin: pinInput, id: currentUser.userInfo.member_id })
       .then(res => {
         if(res.data.success) {
           dispatch(actions.user.setChildActive(false));
+          setLoading(false);
+          setPinInput("");
+          setPinModal(false);
         }
       })
       .catch(err => {
-        console.log(err);
+        setLoading(false)
+        setError(err.response.data.message)
       })
-    setPinInput("");
-    setPinModal(false);
   };
 
   return (
@@ -90,14 +101,25 @@ const Header = (props) => {
           <Message color={'orange'}>
             Current User: {currentUser.userInfo.username}
           </Message>
-          <Input
-            type="text"
-            placeholder="Enter household pin"
-            name="pin"
-            value={pinInput}
-            onChange={handleChange}
-          />
-          <Button onClick={modalButtonClick} primary content="Submit" />
+          {error ? <Message onDismiss={handleDismiss} negative content={error} /> : ''}
+          {loading ? (
+          <>
+            <Dimmer active>
+            <Loader>Loading</Loader>
+            </Dimmer>
+          </>
+          ) : (
+          <>
+            <Input
+              type="password"
+              placeholder="Enter password"
+              name="pin"
+              value={pinInput}
+              onChange={handleChange}
+            />
+            <Button onClick={modalButtonClick} primary content="Submit" />
+          </>
+          )}
         </Modal.Content>
       </Modal>
       <Sidebar setOpened={setSidebarOpened} opened={sidebarOpened} />
