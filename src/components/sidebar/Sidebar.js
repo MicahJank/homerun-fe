@@ -6,6 +6,7 @@ import {
   Menu,
   Button,
 } from "semantic-ui-react";
+import ChildAccountDropdown from "../account/ChildAccountDropdown";
 
 const Sidebar = (props) => {
   const { opened, setOpened } = props;
@@ -25,7 +26,7 @@ const Sidebar = (props) => {
         onClick={() => {
           setOpened(false);
         }}
-        style={{ position: "absolute", top: "79px", right: "48px" }}
+        style={{ position: "absolute", top: "2%", right: "48px" }}
       >
         <span
           className="bm-cross"
@@ -52,6 +53,9 @@ const Sidebar = (props) => {
           setOpened(false);
         }}
       >
+        <Menu.Item name="Switch" as={ChildAccountDropdown}>
+          Switch Account
+        </Menu.Item>
         <Menu.Item name="Account" as={NavLink} to="/dashboard">
           Dashboard
         </Menu.Item>
