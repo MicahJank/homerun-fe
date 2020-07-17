@@ -1,0 +1,39 @@
+.avatar-section {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    .ui.button {
+        margin: 0 20px !important;
+    }
+
+    .ui.orange.big.basic.avatar-upload-btn {
+        color: $quaternary !important;
+        border-color: $quaternary !important;
+    }
+}
+
+.ui.dividing.header {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    
+    div.content {
+
+    }
+}
+
+.user-profile-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border: 1px solid $tertiary;
+    background-color: rgb(255, 242, 218);
+    border-radius: 5rem;
+
+    i.user.big.icon {
+        margin: 0;
+    }
+}
