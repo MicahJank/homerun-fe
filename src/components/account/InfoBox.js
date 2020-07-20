@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Header, Button } from 'semantic-ui-react';
+import { Header, Button, Modal } from 'semantic-ui-react';
+import AccountModal from './AccountModal';
 
 
 const InfoBox = ({ type, info }) => {
@@ -14,7 +15,9 @@ const InfoBox = ({ type, info }) => {
             {info}
             </Header.Content>
             <Header.Content>
-            <Button className="edit">Edit</Button>
+            <Modal trigger={<Button className="edit">Edit</Button>} centered={false}>
+                <AccountModal name={type} info={info} />
+            </Modal>
             </Header.Content>
       </Header>
     )
