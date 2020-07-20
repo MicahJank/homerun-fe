@@ -3,7 +3,7 @@ import { Input, Message, Button, Form } from 'semantic-ui-react';
 
 
 
-const UpdatePassword = ({ info }) => {
+const UpdatePassword = ({ info, setModalOpen }) => {
 
     return (
         <>
@@ -14,7 +14,7 @@ const UpdatePassword = ({ info }) => {
         </Form>
         <div className="btns-section">
             <Button className floated='right' primary>Update Password</Button>
-            <Button floated='right' negative>Cancel</Button>
+            <Button onClick={() => setModalOpen(false)} floated='right' negative>Cancel</Button>
         </div>
         </>
     )

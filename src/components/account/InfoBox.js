@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Header, Button, Modal } from 'semantic-ui-react';
 import AccountModal from './AccountModal';
 
 
 const InfoBox = ({ type, info }) => {
+    const [modalOpen, setModalOpen] = useState(false);
 
     return (
         <Header as="h4" dividing>
@@ -15,8 +16,8 @@ const InfoBox = ({ type, info }) => {
             {info}
             </Header.Content>
             <Header.Content>
-            <Modal trigger={<Button className="edit">Edit</Button>} centered={false}>
-                <AccountModal name={type} info={info} />
+            <Modal onClose={() => setModalOpen(false)} open={modalOpen} trigger={<Button onClick={() => setModalOpen(true)} className="edit">Edit</Button>} centered={false}>
+                <AccountModal setModalOpen={setModalOpen} name={type} info={info} />
             </Modal>
             </Header.Content>
       </Header>
