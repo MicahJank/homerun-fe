@@ -22,7 +22,7 @@ const userReducer = (state = intialState, action) => {
     case "CHILD_ACTIVE":
       return { ...state, loading: false, childActive: action.payload };
 
-    case "UPDATE_USER_INFO":
+    case "UPDATE_USER_NAME":
       return { ...state, userInfo: { ...state.userInfo, ...action.payload } }
 
     default:

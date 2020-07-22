@@ -8,11 +8,11 @@ const setUser = (user) => dispatch => {
 }
 
 // updates user info in the backend and gets a response of the updated info
-const updateUserInfo = (updateInfo) => dispatch => {
+const updateUserName = (usernameObj) => dispatch => {
   dispatch({ type: "SET_LOADING" })
-  axiosWithAuth().put('/members/update-info', updateInfo)
+  axiosWithAuth().put('/members/update-info', usernameObj)
     .then(res => {
-      dispatch({ type: "UPDATE_USER_INFO", payload: res.data });
+      dispatch({ type: "UPDATE_USER_NAME", payload: res.data });
       dispatch({ type: "SET_LOADING_FALSE" })
     })
     .catch(err => {
@@ -55,5 +55,5 @@ export default {
   changeUser,
   setChild,
   setChildActive,
-  updateUserInfo
+  updateUserName
 };

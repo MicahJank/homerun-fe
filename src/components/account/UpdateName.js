@@ -14,7 +14,7 @@ const UpdateName = ( { info, setModalOpen } ) => {
     }
     
     const handleUpdate = () => {
-        dispatch(actions.user.updateUserInfo(userName));
+        dispatch(actions.user.updateUserName(userName));
         setModalOpen(false);
     }
 
