@@ -25,6 +25,9 @@ const userReducer = (state = intialState, action) => {
     case "UPDATE_USER_NAME":
       return { ...state, userInfo: { ...state.userInfo, ...action.payload } }
 
+    case "UPDATE_USER_EMAIL":
+      return { ...state, userInfo: { ...state.userInfo, email: action.payload }}
+
     default:
       return state;
   }

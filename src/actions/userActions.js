@@ -20,6 +20,14 @@ const updateUserName = (usernameObj) => dispatch => {
     })
 }
 
+const updateUserEmail = (email) => dispatch => {
+  dispatch({ type: "SET_LOADING" })
+
+  dispatch({ type: "UPDATE_USER_EMAIL", payload: email })
+
+  dispatch({ type: "SET_LOADING_FALSE" })
+}
+
 const changeUser = (user) => dispatch => {
   const { email, password } = user;
   if(!user.child) {
@@ -55,5 +63,6 @@ export default {
   changeUser,
   setChild,
   setChildActive,
-  updateUserName
+  updateUserName,
+  updateUserEmail
 };
