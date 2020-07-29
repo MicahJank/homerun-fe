@@ -8,7 +8,8 @@ const ChildAccountDropdown = () => {
   const dispatch = useDispatch();
   const [dropDownValue, setDropDownValue] = useState();
   const [options, setOptions] = useState([]);
-
+  
+  console.log("ChildAccountDropdown -> members", members)
   useEffect(() => {
     const children = members
       .filter((member) => member.child)
@@ -33,6 +34,7 @@ const ChildAccountDropdown = () => {
       setDropDownValue('')
     }
   };
+
 
   return (
     <Dropdown

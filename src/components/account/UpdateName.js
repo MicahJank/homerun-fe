@@ -23,7 +23,7 @@ const UpdateName = ( { info, setModalOpen } ) => {
         <Message>Please enter a new name for your account below</Message>
         <Input loading={loading} onChange={handleChange} type="text" size="large" placeholder={info} />
         <div className="btns-section">
-            <Button onClick={handleUpdate} className floated='right' primary>Update Name</Button>
+            <Button onClick={handleUpdate} floated='right' primary>Update Name</Button>
             <Button onClick={() => setModalOpen(false)} floated='right' negative>Cancel</Button>
         </div>
         </>

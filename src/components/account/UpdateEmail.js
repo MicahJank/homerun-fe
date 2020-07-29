@@ -17,7 +17,6 @@ const UpdateEmail = ({ info, setModalOpen }) => {
     }
     
     const handleUpdate = () => {
-        console.log("here")
         axiosWithAuth().put('/members/update-email', { email, memberId: userInfo.member_id })
             .then(res => {
                 alert("Email has ben sent")
@@ -32,7 +31,7 @@ const UpdateEmail = ({ info, setModalOpen }) => {
         <Message>Please enter a new email for your account below</Message>
         <Input onChange={handleChange} size="large" placeholder={info} />
         <div className="btns-section">
-            <Button onClick={handleUpdate} className floated='right' primary>Update Email</Button>
+            <Button onClick={handleUpdate} floated='right' primary>Update Email</Button>
             <Button onClick={() => setModalOpen(false)} floated='right' negative>Cancel</Button>
         </div>
         </>
