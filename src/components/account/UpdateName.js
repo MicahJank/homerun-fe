@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import actions from '../../actions';
 
-const UpdateName = ( { info, setModalOpen } ) => {
+const UpdateName = ( { info, setModalOpen, setMessage } ) => {
     const [userName, setUserName] = useState({ username: info });
     const loading = useSelector(state => state.user.loading);
     const dispatch = useDispatch();

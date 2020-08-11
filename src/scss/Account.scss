@@ -1,3 +1,14 @@
+.account-page-top {
+    display: flex;
+    position: relative;
+    .account-page-message {
+        position: absolute;
+        right: 20%;
+        top: 0;
+        width: 50%;
+    }
+}
+
 .avatar-section {
     display: flex;
     justify-content: left;

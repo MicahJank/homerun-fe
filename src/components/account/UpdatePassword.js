@@ -5,7 +5,7 @@ import actions from '../../actions';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
 
 
-const UpdatePassword = ({ info, setModalOpen }) => {
+const UpdatePassword = ({ info, setModalOpen, setMessage }) => {
     const memberId = useSelector(state => state.user.userInfo.member_id);
     const [passwordInfo, setPasswordInfo] = useState({ oldPassword: '', newPassword: '', memberId });
     const [loading, setLoading] = useState(false);
@@ -20,8 +20,7 @@ const UpdatePassword = ({ info, setModalOpen }) => {
         setLoading(true)
         axiosWithAuth().put('/auth/update-password', passwordInfo)
             .then(res => {
-                alert("Password has been updated")
-                console.log(res);
+                setMessage("Password has been updated successfully!")
                 setPasswordInfo({ oldPassword: '', newPassword: '', memberId })
                 setLoading(false)
                 setModalOpen(false)

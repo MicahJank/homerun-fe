@@ -6,7 +6,7 @@ import actions from '../../actions';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
 
 
-const UpdateEmail = ({ info, setModalOpen }) => {
+const UpdateEmail = ({ info, setModalOpen, setMessage }) => {
     const [email, setEmail] = useState('');
     const loading = useSelector(state => state.user.loading);
     const userInfo = useSelector(state => state.user.userInfo);
@@ -39,7 +39,8 @@ const UpdateEmail = ({ info, setModalOpen }) => {
                 setInputError(false);
                 setErrorInfo('')
                 setErrorHidden(true)
-                alert("Email has ben sent") // <- should be alerted in the account page section not the modal section
+                setMessage("A confirmation Email has ben sent to the given email address, please check your email for more information.") 
+                setModalOpen(false)
             })
             .catch(err => {
                 setInputError(true);
