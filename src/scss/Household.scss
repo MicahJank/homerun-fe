@@ -6,15 +6,23 @@
   align-items: center;
 
   .list-container {
-    width: 40%;
-    margin-left: 12%;
+    width: 50%;
     display: flex;
-    justify-content: space-evenly;
-    align-items: baseline;
+    flex-direction: row !important;   // <---Overridding semantic ui
+    justify-content: space-evenly !important;  // <---
+    align-items: baseline !important;  // <---
 
     .user-list {
       width: 40%;
 
+      .ui.segments {
+
+        margin-top: 0;
+      }
+
+      .ui.header {
+        margin-bottom: 5px;
+      }
     }
   }
 

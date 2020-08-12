@@ -17,7 +17,7 @@ const Name = (props) => {
   }, []);
 
   return (
-    <li style={{ margin: "15px 0" }}>
+    <li style={{padding: "10px 10px", borderBottom: "1px solid #dbdbdb" }}>
       <Row align="middle">
         <Col span={4}>
           <span className="initials">{initials}</span>
