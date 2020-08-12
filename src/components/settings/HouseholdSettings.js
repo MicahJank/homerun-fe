@@ -5,7 +5,7 @@ import { Dropdown } from 'semantic-ui-react';
 import actions from "../../actions";
 
 const HouseholdSettings = () => {
-  const members = useSelector(state => state.household.members);
+  const members = useSelector(state => state.household.children);
   const currentUser = useSelector(state => state.user.userInfo);
   const dispatch = useDispatch();
   const [dropDownValue, setDropDownValue] = useState();
@@ -13,7 +13,7 @@ const HouseholdSettings = () => {
   
   console.log("HouseholdSettings -> currentUser", currentUser)
  useEffect(() => {
-   const children = members.filter(member => member.child).map(child => {
+   const children = members.map(child => {
      return { key: child.id, text: child.username, value: child.username }
    });
    

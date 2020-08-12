@@ -30,7 +30,7 @@ const List = () => {
         })}
       </UiList>
       <UiList className="user-list" selection verticalAlign="middle">
-      {household.members.map(member => {
+      {household.children.map(member => {
         return <Name key={member.username} name={member.username} />;
       })}
       </UiList>
