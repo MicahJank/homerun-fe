@@ -2,6 +2,7 @@ import { ERROR, FETCH_MEMBERS_SUCCESS, LOADING, ADD_CHILD } from '../actions/hou
 
 const initialState = {
       members: [],
+      children: [],
       error: '',
       loading: false
   };
