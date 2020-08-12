@@ -10,12 +10,9 @@ import {
   Modal,
   List as UiList,
 } from "semantic-ui-react";
-import AddChild from "./AddChild.js";
-import InviteMember from "./InviteMember.js";
+
 
 const List = () => {
-  const [childModal, setChildModal] = useState(false);
-  const [memberModal, setMemberModal] = useState(false);
 
   const household = useSelector(state => state.household)
   const dispatch = useDispatch();
@@ -26,27 +23,17 @@ const List = () => {
   }, []);
 
   return (
-    <div>
-      <UiList selection verticalAlign="middle">
+    <div className="list-container">
+      <UiList className="user-list" selection verticalAlign="middle">
         {household.members.map(member => {
           return <Name key={member.username} name={member.username} />;
         })}
       </UiList>
-      <Modal
-        open={memberModal}
-        onClose={() => setMemberModal(false)}
-        trigger={
-          <Button primary onClick={() => setMemberModal(true)}>Invite Member</Button>
-        }
-        
-        content={<InviteMember setModal={setMemberModal} />}
-      ></Modal>
-      <Modal
-        open={childModal}
-        onClose={() => setChildModal(false)}
-        trigger={<Button className={'addChild-btn'} onClick={() => setChildModal(true)}>Add Child</Button>}
-        content={<AddChild setModal={setChildModal} />}
-      ></Modal>
+      <UiList className="user-list" selection verticalAlign="middle">
+      {household.members.map(member => {
+        return <Name key={member.username} name={member.username} />;
+      })}
+      </UiList>
     </div>
   );
 };
