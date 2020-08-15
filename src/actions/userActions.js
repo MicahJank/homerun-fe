@@ -1,9 +1,31 @@
 import axios from 'axios';
+import axiosWithAuth from '../utils/AxiosWithAuth.js';
 
 // Action Creators
 const setUser = (user) => dispatch => {
   console.log(user);
 	dispatch({ type: "SET_USER", payload: user })
+}
+
+// updates user info in the backend and gets a response of the updated info
+const updateUserName = (usernameObj) => dispatch => {
+  dispatch({ type: "SET_LOADING" })
+  axiosWithAuth().put('/members/update-info', usernameObj)
+    .then(res => {
+      dispatch({ type: "UPDATE_USER_NAME", payload: res.data });
+      dispatch({ type: "SET_LOADING_FALSE" })
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
+const updateUserEmail = (email) => dispatch => {
+  dispatch({ type: "SET_LOADING" })
+
+  dispatch({ type: "UPDATE_USER_EMAIL", payload: email })
+
+  dispatch({ type: "SET_LOADING_FALSE" })
 }
 
 const changeUser = (user) => dispatch => {
@@ -40,5 +62,7 @@ export default {
   setUser,
   changeUser,
   setChild,
-  setChildActive
+  setChildActive,
+  updateUserName,
+  updateUserEmail
 };

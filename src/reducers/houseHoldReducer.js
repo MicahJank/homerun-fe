@@ -1,7 +1,10 @@
 import { ERROR, FETCH_MEMBERS_SUCCESS, LOADING, ADD_CHILD } from '../actions/houseHoldActions.js';
+import { act } from 'react-dom/test-utils';
 
 const initialState = {
+      allUsers: [],
       members: [],
+      children: [],
       error: '',
       loading: false
   };
@@ -19,13 +22,16 @@ const initialState = {
                 ...state,
                 error: '',
                 loading: false,
-                members: action.payload
+                members: action.payload.members,
+                children: action.payload.children,
+                allUsers: [...action.payload.members, ...action.payload.children]
             }
         case ADD_CHILD:
             return {
                 ...state,
                 error: '',
-                members: [...state.members, action.payload]
+                children: [...state.children, action.payload],
+                allUsers: [...state.allUsers, action.payload]
 
             }
         case ERROR:

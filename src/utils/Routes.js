@@ -37,6 +37,7 @@ import Auth from "../components/auth/Auth.js";
 import ContactUsForm from "../components/marketing/ContactUsForm";
 
 import { InviteConfirm } from "../components/household/InviteConfirm.js";
+import EmailRedirect from './../components/account/Email-Redirect.js';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -70,6 +71,7 @@ const Routes = () => {
         <Route path="/forgot-password" component={ForgotPW} />
         <Route path="/reset-password/:hash" component={ResetPW} />
         <Route path="/confirm-account/:hash" component={ConfirmAcct} />
+        <Route path="/update-email/:hash" component={EmailRedirect} />
         <Route path="/auth" component={Auth} />
         <Route path="/about" component={AboutUsDraft} />
         <Route path="/invite/:hash/:householdId" component={InviteConfirm} />

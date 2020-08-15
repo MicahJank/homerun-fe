@@ -4,21 +4,21 @@ import { Dropdown } from "semantic-ui-react";
 import actions from "../../actions";
 
 const ChildAccountDropdown = () => {
-  const members = useSelector((state) => state.household.members);
+  const members = useSelector((state) => state.household.children);
   const dispatch = useDispatch();
   const [dropDownValue, setDropDownValue] = useState();
   const [options, setOptions] = useState([]);
-
+  
+  console.log("ChildAccountDropdown -> members", members)
   useEffect(() => {
-    const children = members
-      .filter((member) => member.child)
-      .map((child) => {
+    const children = members.map((child) => {
         return { key: child.id, text: child.username, value: child.username };
       });
+      
     children.unshift({
       key: 99,
-      text: "Please select a child.",
-      value: "Please select a child.",
+      text: "Select One",
+      value: "Switch to Child Account.",
     });
 
     setOptions(children);
@@ -26,18 +26,21 @@ const ChildAccountDropdown = () => {
 
   const handleChange = (event, { value }) => {
     event.persist();
-    if (value !== "Please select a child.") {
+    if (value !== "Switch to Child Account.") {
       setDropDownValue(value);
       const [user] = members.filter((user) => value === user.username);
       dispatch(actions.user.setChild(user));
+      setDropDownValue('')
     }
   };
 
+
   return (
     <Dropdown
+      style={{padding: '20px', margin: '0px 0 50px 0'}}
       selection
       onChange={handleChange}
-      placeholder={`Please select a child.`}
+      placeholder={`Switch to Child Account.`}
       value={dropDownValue}
       fluid
       options={options}

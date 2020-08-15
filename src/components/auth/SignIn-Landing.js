@@ -6,6 +6,7 @@ import {
   Container,
   Loader,
   Dimmer,
+  Message,
 } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -21,6 +22,7 @@ const googleAuth = () => {
 
 const SignInLanding = (props) => {
   const { register, handleSubmit, errors } = useForm();
+  const [ error, setErorr ] = useState('')
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -36,7 +38,8 @@ const SignInLanding = (props) => {
         props.history.push("/dashboard");
       })
       .catch((err) => {
-        console.log(err);
+        setErorr(err.response.data.message)
+        setIsLoading(false)
       });
   };
 
@@ -51,6 +54,10 @@ const SignInLanding = (props) => {
             <Header.Subheader>Sign in to access your account</Header.Subheader>
           </Header>
         </div>
+        <Message negative hidden={error ? false : true}>
+          <Message.Header>There was an issue logging you in</Message.Header>
+          <p>{error}</p>
+        </Message>
         <div>
           {isLoading ? (
             <Dimmer active inverted>

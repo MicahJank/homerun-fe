@@ -25,7 +25,7 @@ const Todo = (props) => {
   const [confetti, setConfetti] = useAsyncState(false);
   const dispatch = useDispatch();
   const userIsChild = useSelector((state) => state.user.childActive);
-  const householdUsers = useSelector((state) => state.household.members);
+  const householdUsers = useSelector((state) => state.household.allUsers);
   const { height, width } = useWindowSize();
   const [editing, setEditing] = useState(false);
 
