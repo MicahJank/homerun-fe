@@ -53,8 +53,8 @@ const Sidebar = (props) => {
           setOpened(false);
         }}
       >
+        <Menu.Header>Switch to Child</Menu.Header>
         <Menu.Item name="Switch" as={ChildAccountDropdown}>
-          Switch Account
         </Menu.Item>
         <Menu.Item name="Account" as={NavLink} to="/dashboard">
           Dashboard

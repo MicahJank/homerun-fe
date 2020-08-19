@@ -8,11 +8,18 @@ import actions from '../../actions/index'
 import {
   List as UiList,
   Segment,
-  Header
+  Header,
+  Button,
+  Modal
 } from "semantic-ui-react";
 
+import InviteMember from "./InviteMember.js";
+import AddChild from "./AddChild.js";
 
 const List = () => {
+  const [childModal, setChildModal] = useState(false);
+  const [memberModal, setMemberModal] = useState(false);
+
   const household = useSelector(state => state.household)
   const dispatch = useDispatch();
   console.log(household);
@@ -31,6 +38,15 @@ const List = () => {
                 return <Name key={member.username} name={member.username} />;
               })}
             </UiList>
+            <Modal className="household-modal"
+                open={memberModal}
+                onClose={() => setMemberModal(false)}
+                trigger={
+                <Button className="household-btn" primary onClick={() => setMemberModal(true)}>Invite Member</Button>
+              }
+              
+              content={<InviteMember setModal={setMemberModal} />}>
+            </Modal>
           </Segment.Group>
         </div>
         <div className="user-list">
@@ -41,6 +57,12 @@ const List = () => {
               return <Name key={member.username} name={member.username} />;
               })}
             </UiList>
+              <Modal className="household-modal"
+                open={childModal}
+                onClose={() => setChildModal(false)}
+                trigger={<Button className={'addChild-btn household-btn'} onClick={() => setChildModal(true)}>Add Child</Button>}
+                content={<AddChild setModal={setChildModal} />}
+            ></Modal>
           </Segment.Group>
         </div>
       </Segment>
