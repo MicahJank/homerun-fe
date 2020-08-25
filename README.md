@@ -2,6 +2,10 @@
 
 You can find the deployed project at [TidyHive](https://stage-homerun-fe.herokuapp.com/).
 
+# Intro
+
+TidyHive simplifies home management with an easy-to-use interface and a robust feature set allowing you organize everything in your home from day-to-day tasks to larger projects. 
+
 ##  Contributors
 
 |    [Heather Ridgill ](https://github.com/Heather-Ridgill)      |     [Micah Jank](https://github.com/MicahJank)       |     [Katrina Roaix](https://github.com/kroaix)     |     [Yankho Trumble](https://github.com/Mayankho)     |
@@ -43,11 +47,6 @@ You can find the deployed project at [TidyHive](https://stage-homerun-fe.herokua
 [Product Canvas](https://www.notion.so/3aace866789645e28bf7201e51caf7ab?v=6f422e13816b4053ba28a617be2fc9d7)
 
 [PVD](https://www.notion.so/Home-Run-12ed145a14c1426492108b0558e6d64b)
-
-
-# Intro
-
-TidyHive simplifies home management with an easy-to-use interface and a robust feature set allowing you organize everything in your home from day-to-day tasks to larger projects. 
 
 
 ## Key Features
