@@ -1,4 +1,5 @@
-# Welcome to TidyHive! ![Tidy Hive Logo](https://i.ibb.co/2NCFWmg/tidyhive.png)
+![Tidy Hive Logo](https://i.ibb.co/2NCFWmg/tidyhive.png) 
+# Welcome to TidyHive! 
 
 You can find the deployed project at [TidyHive](https://tidyhive.vercel.app/).
 
