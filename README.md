@@ -133,8 +133,7 @@ Google Sign in
 
 See [Backend Documentation](https://github.com/Lambda-School-Labs/homerun-be/blob/master/README.md) for details on the backend of our project.
 
-
-<!-- # Contributing
+# Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
@@ -168,5 +167,5 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 ### Attribution
 
-These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426). -->
+These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
 
