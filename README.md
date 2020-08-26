@@ -131,7 +131,7 @@ Google Sign in
 
 # Documentation
 
-See [Backend Documentation](https://github.com/Lambda-School-Labs/homerun-be/blob/master/README.md) for details on the backend of our project.
+See [Backend Documentation](https://github.com/MicahJank/homerun-be/blob/master/README.md) for details on the backend of our project.
 
 # Contributing
 
