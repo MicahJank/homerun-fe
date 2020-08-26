@@ -74,7 +74,7 @@ Google Sign in
 
 ## Front end deployed using [Vercel](www.vercel.com)
 
-# [Back-end](https://github.com/Lambda-School-Labs/homerun-be) built using:
+# [Back-end](https://github.com/MicahJank/homerun-be) built using:
 
 ## [Node.JS](https://nodejs.org/en/)
 
@@ -86,6 +86,10 @@ Google Sign in
 
 ## [Knex](https://www.npmjs.com/package/knex)
 -    Knex can be built using a JavaScript build tool such as browserify or webpack. In fact, this documentation uses a webpack build which includes knex. View source on this page to see the browser build in-action (the global knex variable).
+
+# Documentation
+
+See [Backend Documentation](https://github.com/MicahJank/homerun-be/blob/master/README.md) for details on the backend of our project.
 <!-- 
 <!-- PRIVATE -->
 <!-- #  Environment Variables 
@@ -127,11 +131,6 @@ Google Sign in
 
 - NPM i
 - NPM Start
-
-
-# Documentation
-
-See [Backend Documentation](https://github.com/MicahJank/homerun-be/blob/master/README.md) for details on the backend of our project.
 
 # Contributing
 
