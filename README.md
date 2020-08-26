@@ -132,6 +132,10 @@ See [Backend Documentation](https://github.com/MicahJank/homerun-be/blob/master/
 - NPM i
 - NPM Start
 
+### ENV variables
+The only env variable you should need for the front end is whatever port the backend is currently listening on.
+- i.e if the backend server is listening on port 3000 then your env variable should be REACT_APP_BE_URL=http://localhost:3000
+
 # Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
