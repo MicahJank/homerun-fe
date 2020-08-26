@@ -40,31 +40,17 @@ TidyHive simplifies home management with an easy-to-use interface and a robust f
 
 <!-- 🚫 more info on using badges [here](https://github.com/badges/shields) -->
 
-## Project Overview
-
-[Trello Board](https://trello.com/b/dUO3ZNeC/labspt7-homerun)
-
-[Product Canvas](https://www.notion.so/3aace866789645e28bf7201e51caf7ab?v=6f422e13816b4053ba28a617be2fc9d7)
-
-[PVD](https://www.notion.so/Home-Run-12ed145a14c1426492108b0558e6d64b)
-
-
 ## Key Features
 
 -    TidyHive gives you the ability to organize and manage your todos in a simple and easy way.
 -    Manage and share household todos from any device.
--    Assign todos to household members manually, automatically, or randomly.
--    DownloadTidyHive to your mobile device for use offline.
--    Time-blocking
--    When a user completes a task and swips it complete - there is animation (confetti) to emulate the feeling of crossing off a list.
+-    Assign todos to household members
 
 # Tech Stack
 
 ## Front-end built using:
 
 ## [React](https://reactjs.org/)
-
-
 -    We are able to use a "virtual browser" that is more friendly than a real browser (Virtual DOM)
 -    Reusable components 
 
@@ -86,7 +72,7 @@ Google Sign in
 -    From user research, most users like to use social media as an easy and fast way to sign in quickly. 
 
 
-## Front end deployed to [Heroku](www.heroku.com)
+## Front end deployed using [Vercel](www.vercel.com)
 
 # [Back-end](https://github.com/Lambda-School-Labs/homerun-be) built using:
 
