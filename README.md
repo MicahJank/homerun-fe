@@ -1,6 +1,6 @@
 # Welcome to TidyHive! 
 
-You can find the deployed project at [TidyHive](https://stage-homerun-fe.herokuapp.com/).
+You can find the deployed project at [TidyHive](https://tidyhive.vercel.app/).
 
 # Intro
 
