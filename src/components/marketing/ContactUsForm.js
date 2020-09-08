@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Icon } from "semantic-ui-react";
+import { Icon, Form, Button } from "semantic-ui-react";
 import SidebarMarketing from "./Sidebar-Marketing";
 import Navigation from "../marketing/Navigation";
 import Footer from "../marketing/Footer";
@@ -25,9 +25,9 @@ export default class ContactUsForm extends React.Component {
             <span className="contact100-form-symbol">
               <Icon size="huge" className="mail outline" />
             </span>
-            <form
+            <Form
               onSubmit={this.handleSubmit}
-              action="https://formspree.io/xoqnlllw"
+              action="https://formspree.io/mlepqpjg"
               method="POST"
             >
 
@@ -37,7 +37,7 @@ export default class ContactUsForm extends React.Component {
               </div>
 
 
-              <div>
+              <Form.Field>
                 <label> Full Name: </label>
                 <input
                   className="wrap-input"
@@ -49,8 +49,8 @@ export default class ContactUsForm extends React.Component {
                 <div style={{ fontSize: 15, color: "red" }}>
                   {this.state.nameError}
                 </div>
-              </div>
-              <div>
+              </Form.Field>
+              <Form.Field>
                 <label> Email: </label>
                 <input
                   type="text"
@@ -63,12 +63,12 @@ export default class ContactUsForm extends React.Component {
                 <div style={{ fontSize: 15, color: "red" }}>
                   {this.state.emailError}
                 </div>
-              </div>
-              <div>
+              </Form.Field>
+              <Form.Field>
                 <label> Subject: </label>
                 <input
                   className="wrap-input"
-                  type="subject"
+                  type="text"
                   name="subject"
                   placeholder="Subject"
                   value={this.state.subject}
@@ -77,8 +77,8 @@ export default class ContactUsForm extends React.Component {
                 <div style={{ fontSize: 15, color: "red" }}>
                   {this.state.subjectError}
                 </div>
-              </div>
-              <div>
+              </Form.Field>
+              <Form.Field>
                 <label> Message: </label>
                 <textarea
                   className="wrap-input"
@@ -91,7 +91,7 @@ export default class ContactUsForm extends React.Component {
                 <div style={{ fontSize: 15, color: "red" }}>
                   {this.state.messageError}
                 </div>
-              </div>
+              </Form.Field>
               <button
                 className="container-contact100-form-btn"
                 type="submit"
@@ -103,9 +103,7 @@ export default class ContactUsForm extends React.Component {
                 <button
                   className="back"><Link to={"/"}>Nevermind!</Link> </button>
               </div>
-
-
-            </form>
+            </Form>
           </div>
         </div>
         <Footer />
