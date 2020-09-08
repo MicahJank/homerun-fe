@@ -33,8 +33,6 @@ TidyHive simplifies home management with an easy-to-use interface and a robust f
 
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 
