@@ -11,6 +11,18 @@ const CardContainer = styled.div`
   justify-content: center;
   width: 90%;
   margin: 0 auto 50px;
+
+  h1 {
+    text-align: center;
+  }
+
+  .ui.card:first-child {
+    margin-top: 14px;
+  }
+
+  .ui.card:last-child {
+    margin-bottom: 14px;
+  }
 `;
 
 
@@ -83,7 +95,7 @@ const SocialButton = styled.button`
   }
 `;
 
-const H2 = styled.h2`
+const H1 = styled.h1`
   text-align: center;
   font-size: 3rem;
   color: #636578;
@@ -105,7 +117,7 @@ const AboutUsDraft = () => {
     <>
       <SidebarMarketing />
       <Navigation />
-      <h1>Our Team</h1>
+      <H1>Our Team</H1>
       <CardContainer>
         {users.map(user => {
           return (
