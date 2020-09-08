@@ -28,7 +28,6 @@ const Navigation = () => {
               Home
             </NavLink>
             <NavLink to="/about">About</NavLink>
-            <NavLink to="/features">Features</NavLink>
             <NavLink to="/contact">Contact</NavLink>
           </div>
         </nav>
