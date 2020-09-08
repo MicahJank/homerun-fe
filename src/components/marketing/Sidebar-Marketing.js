@@ -10,10 +10,7 @@ const SidebarMarketing = () => {
         Home
       </NavLink>
       <NavLink to="/about" className="menu-item">
-        About
-      </NavLink>
-      <NavLink to="/features" className="menu-item">
-        Features
+        Team
       </NavLink>
       <NavLink to="/contact" className="menu-item">
         Contact
