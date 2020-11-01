@@ -29,7 +29,6 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
 - Browser [e.g. chrome, safari]
-- Version [e.g. 22]
 
 
 **Additional context**
