@@ -188,3 +188,10 @@ Webpack 5. Existing React 16 components and application routes are preserved.
 Only public frontend configuration belongs in `REACT_APP_*`; provider secrets
 must remain on the server. Old backend services may need separate account
 recovery and configuration before this retired app can function end to end.
+
+`npm run coverage` now returns a failing exit code when tests fail. CI saves
+coverage as a GitHub Actions artifact without needing the retired Code Climate
+account. The build retains the app's existing lint warnings as warnings;
+compilation errors and test failures still stop CI. `vercel.json` uses the same
+locked install and build commands. Resolving the existing lint backlog and the
+remaining older application dependencies is separate from this build repair.
