@@ -173,3 +173,18 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 ### Credential safety
 
 The backend credential examples above are placeholders. Server secrets must stay in the backend environment or hosting secret store, never in frontend bundles. Revoke any credentials previously committed to this repository before reuse; replacing this file does not invalidate copies in Git history.
+
+
+### Build and test on Node 22
+
+Use Node 22 (also recorded in `.nvmrc`) and npm 10 or newer. The committed
+lockfile provides reproducible installs with `npm ci --ignore-scripts`.
+Run `npm test -- --watchAll=false --runInBand` and `npm run build` before
+deployment. GitHub Actions runs these checks without application secrets.
+
+The build uses React Scripts 5 / Webpack 5 and Dart Sass instead of the retired
+Node Sass native module. Semantic UI CSS 2.5 fixes the embedded font URLs for
+Webpack 5. Existing React 16 components and application routes are preserved.
+Only public frontend configuration belongs in `REACT_APP_*`; provider secrets
+must remain on the server. Old backend services may need separate account
+recovery and configuration before this retired app can function end to end.
