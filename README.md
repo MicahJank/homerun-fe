@@ -100,14 +100,14 @@ See [Backend Documentation](https://github.com/MicahJank/homerun-be/blob/master/
     *  OAUTH_PROTOCOL=http
     *  DEV_LOCAL=postgresql://postgres:Test1234@localhost/postgres
     *  SG_USER=apikey
-    *  SG_PASS=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
+    *  SG_PASS=REPLACE_WITH_YOUR_OWN_VALUE
     *  ALGO=aes-256-cbc
     *  CRYPTO_KEY=True nobility is being superior to your former self.
     *  SESSION_KEY=this is a session key
     *  G_CLIENT_ID=1050964061778-o501f0usfcgqtapvsmhvs89eebtndv9m.apps.googleusercontent.com
-    *  G_CLIENT_SECRET=G1tKjOJDY5srwnyMPf8bJbvk
+    *  G_CLIENT_SECRET=REPLACE_WITH_YOUR_OWN_VALUE
     *  F_CLIENT_ID=200338417844322
-    *  F_CLIENT_SECRET=7a99ae1f44e01f370261b55b9e37d45f --> 
+    *  F_CLIENT_SECRET=REPLACE_WITH_YOUR_OWN_VALUE -->
 <!-- 
 #  Content Licenses
 
@@ -170,3 +170,28 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
 
+### Credential safety
+
+The backend credential examples above are placeholders. Server secrets must stay in the backend environment or hosting secret store, never in frontend bundles. Revoke any credentials previously committed to this repository before reuse; replacing this file does not invalidate copies in Git history.
+
+
+### Build and test on Node 22
+
+Use Node 22 (also recorded in `.nvmrc`) and npm 10 or newer. The committed
+lockfile provides reproducible installs with `npm ci --ignore-scripts`.
+Run `npm test -- --watchAll=false --runInBand` and `npm run build` before
+deployment. GitHub Actions runs these checks without application secrets.
+
+The build uses React Scripts 5 / Webpack 5 and Dart Sass instead of the retired
+Node Sass native module. Semantic UI CSS 2.5 fixes the embedded font URLs for
+Webpack 5. Existing React 16 components and application routes are preserved.
+Only public frontend configuration belongs in `REACT_APP_*`; provider secrets
+must remain on the server. Old backend services may need separate account
+recovery and configuration before this retired app can function end to end.
+
+`npm run coverage` now returns a failing exit code when tests fail. CI saves
+coverage as a GitHub Actions artifact without needing the retired Code Climate
+account. The build retains the app's existing lint warnings as warnings;
+compilation errors and test failures still stop CI. `vercel.json` uses the same
+locked install and build commands. Resolving the existing lint backlog and the
+remaining older application dependencies is separate from this build repair.

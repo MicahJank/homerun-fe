@@ -2,62 +2,50 @@ import { ADD_CHILD, FETCH_MEMBERS_SUCCESS } from '../actions/houseHoldActions.js
 import householdReducer from './houseHoldReducer.js';
 
 const initialState = {
+    allUsers: [],
     members: [],
+    children: [],
     error: '',
     loading: false
 };
 
 describe("household reducer", () => {
-    it('should return the inital state', () => {
-        expect(householdReducer(undefined, {})).toEqual(initialState)
-    })
+    it('returns the initial state', () => {
+        expect(householdReducer(undefined, {})).toEqual(initialState);
+    });
 
-    it('should handle ADD_CHILD action', () => {
-        const actionPayload = {
-            id: 5,
-            username: "new child",
-            points: null,
-            child: true,
-            household_id: "4cfd47"
-        } 
-        expect(householdReducer(initialState, { type: ADD_CHILD, payload: actionPayload }))
-              .toEqual({ ...initialState, members: [ { id: 5,
-                username: "new child",
-                points: null,
-                child: true,
-                household_id: "4cfd47"} ]})
-    })
+    it('adds a child while preserving the adults and existing children', () => {
+        const adult = { id: 3, username: 'Parent' };
+        const existingChild = { id: 4, username: 'Older child', child: true };
+        const newChild = { id: 5, username: 'New child', child: true };
+        const state = {
+            ...initialState,
+            members: [adult],
+            children: [existingChild],
+            allUsers: [adult, existingChild]
+        };
 
-    it('should handle the FETCH_MEMBERS_SUCCESS action', () => {
-        const actionPayload = [
-            {
-                id: 3,
-                username: "Micah",
-                email: 'micah@testing.com',
-                points: null
-            },
-            {
-                id: 5,
-                username: "new child",
-                points: null,
-                child: true,
-            }
-        ]
-        expect(householdReducer(initialState, { type: FETCH_MEMBERS_SUCCESS, payload: actionPayload }))
-                .toEqual({   
-                    members: [{
-                        id: 3,
-                        username: "Micah",
-                        email: 'micah@testing.com',
-                        points: null
-                    },
-                    {
-                        id: 5,
-                        username: "new child",
-                        points: null,
-                        child: true,
-                    }],
-                    error: '',
-                    loading: false})
-    })
-})
+        expect(householdReducer(state, { type: ADD_CHILD, payload: newChild }))
+            .toEqual({
+                ...state,
+                children: [existingChild, newChild],
+                allUsers: [adult, existingChild, newChild]
+            });
+        expect(state.children).toEqual([existingChild]);
+    });
+
+    it('loads the member and child lists returned by the household API', () => {
+        const member = { id: 3, username: 'Parent' };
+        const child = { id: 5, username: 'Child', child: true };
+
+        expect(householdReducer(
+            { ...initialState, loading: true, error: 'previous error' },
+            { type: FETCH_MEMBERS_SUCCESS, payload: { members: [member], children: [child] } }
+        )).toEqual({
+            ...initialState,
+            members: [member],
+            children: [child],
+            allUsers: [member, child]
+        });
+    });
+});
